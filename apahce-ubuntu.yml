@@ -1,0 +1,16 @@
+---
+- name: install apache2 in ubuntu
+  hosts: all
+  become: true
+  tasks: 
+  - name: install apahce2
+    apt:
+     name: apache2
+     state: present
+    notify: start apache service
+
+  handlers:
+  - name: stsrt 
+    service: 
+     name: apache2
+     state: started

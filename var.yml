@@ -1,0 +1,10 @@
+---
+- hosts: all
+  user: ansible
+  become: true
+  connection: ssh
+  vars:
+   pkgname: apache2
+  tasks:
+   - name: install
+     action: apt name="{{pkgname}}" state=present

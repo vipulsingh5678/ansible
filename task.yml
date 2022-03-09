@@ -1,0 +1,11 @@
+---  #my First testing 
+
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+          - name: Install httpd in centos
+            action: apt name=apache2 state=present
+
+

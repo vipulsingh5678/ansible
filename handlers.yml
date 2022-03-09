@@ -1,0 +1,13 @@
+--- 
+- name: handlers
+  hosts: all
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+    - name: install apache2
+      action: apt name=apache2 state=present
+      notify: restart httpd
+  handlers:
+      - name: restart httpd
+        action: service name=apache2 state=started

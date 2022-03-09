@@ -1,0 +1,14 @@
+---
+- hosts: demo
+  user: ansible
+  become: true 
+  connection: ssh
+  tasks:
+     - name: add list of users 
+       user: name="{{item}}" state=present
+       with_items: 
+               - Vipul
+               - Ritik
+               - manish 
+               - nikhil
+

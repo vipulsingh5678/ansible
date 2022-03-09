@@ -1,0 +1,14 @@
+---
+- name: first playbook
+  hosts: all
+  become: true
+  tasks:      
+    - name: stop httpd service 
+      service: 
+        name: apache2
+        state: stopped
+    
+    - name: remove httpd 
+      apt:
+        name: apache2
+        state: removed
